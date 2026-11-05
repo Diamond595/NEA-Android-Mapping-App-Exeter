@@ -19,18 +19,21 @@ import com.ems.nea.exetermappingapp.settings.MapSettings
 import org.jetbrains.annotations.TestOnly
 
 
+// Labels as test only, to remind me to remove it before submitting
 @TestOnly
 @Composable
 fun SettingsTest(
     mainSettings: MainSettings,
     mapSettings: MapSettings
 ){
+    // Creates a scrollable column with each setting listed out
     LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding()
     ) {
         item {
+            // List of settings being printed out to the screen and Logcat
             Text(
                 text = "Main Settings Values",
                 fontSize = 30.sp
@@ -47,6 +50,7 @@ fun SettingsTest(
                 text = "Icon Style: " + mainSettings.iconStyle.toString()
             )
             Log.d(TAG, mainSettings.iconStyle.toString())
+            // Adds a background inversed to the background, as displaying the background text, in the background colour, on the background colour results in not much info
             Text(
                 text = "Background Colour: " + mainSettings.backgroundColour.toHexString(),
                 color = Color(mainSettings.backgroundColour.red, mainSettings.backgroundColour.green, mainSettings.backgroundColour.blue),

@@ -1,4 +1,4 @@
-package com.ems.nea.exetermappingapp.uifuns
+package com.ems.nea.exetermappingapp.funs
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddBox
@@ -13,17 +13,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.sp
 import com.ems.nea.exetermappingapp.settings.MainSettings
 
+// The bottom navigation bar
 @Composable
 fun BottomBar(
     screen: String,
     onScreenChange: (String) -> Unit,
     mainSettings: MainSettings
 ){
+    // Uses the navigation bar function
     NavigationBar() {
+        // the first item in the bar, being the home menu
         NavigationBarItem(
             selected = screen == "home",
             onClick = { onScreenChange("home") },
             icon = {
+                // Changes the existence of an icon depending on the settings
                 if (mainSettings.iconStyle == 0 || mainSettings.iconStyle == 2) {
                     Icon(
                         imageVector = Icons.Filled.Home,
@@ -31,6 +35,7 @@ fun BottomBar(
                     )
                 }
             },
+            // Changes the existence of a label depending on the settings
             label = {
                 if (mainSettings.iconStyle == 0 || mainSettings.iconStyle == 1) {
                     Text(
